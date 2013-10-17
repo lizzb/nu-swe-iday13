@@ -15,7 +15,9 @@
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <!--</head>
   <body> -->
@@ -28,8 +30,10 @@
   <link rel="stylesheet" href="./style/pivot.css" type="text/css" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   <script src="./js/subnav.js"></script>
   <script src="./js/accounting.min.js"></script>
+
   <script src="./js/jquery.dataTables.min.js"></script>
   <script src="./js/dataTables.bootstrap.js"></script>
 
@@ -57,11 +61,11 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
+
           <ul class="nav">
             <li class="active">
               <a class="brand" href="http://swe.mccormick.northwestern.edu/iday.html" target="_blank">NU SWE presents Industry Day 2013</a>
             </li>
-            
           </ul>
         </div>
       </div>
@@ -90,7 +94,13 @@
         <li>Then filter your data by selecting from the filters drop down.</li>
 
         <br><br>
-        
+
+<!--
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="BME">BME</label>
+        -->
+
+        <!--<input type="checkbox" data-field="Mech. Eng" onchange="fnShowHide(6)">Mech. Eng -->
       </ul>
 
     </p>
@@ -111,15 +121,112 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <!--Row Label Fields  (majors?) -->
-            Columns to display
+            Majors
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
-            <div id="row-label-fields"></div>
+            <div id="row-label-fields">
+
+        <!--
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Company" checked>Company</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Table #">Table #</label>
+        
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Room  (Floor)">Room (Floor)</label>
+        -->
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Applied Math">Applied Math</label>
+        
+        
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Chem">Chem</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Civil">Civil</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Comp. Eng">Comp. Eng</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Comp. Sci">Comp. Sci</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="EE">EE</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Environ. Eng.">Environ. Eng.</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="IE">IE</label>
+        
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="MaDE">MaDE</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Mat. Sci">Mat. Sci</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Mech. Eng">Mech. Eng</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Non - Eng">Non - Eng</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Intern">Intern</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Co-op">Co-op</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Permanent">Permanent</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="MS/PhD">MS/PhD</label>
+
+
+            </div>
+          
+
           </ul>
         </li>
 
-        
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <!--Row Label Fields  (majors?) -->
+            Positions
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+            <div id="column-label-fields">
+
+
+                <label class="checkbox">
+            <input type="checkbox" class="col-labelable" data-field="Intern">Intern</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="col-labelable" data-field="Co-op">Co-op</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="col-labelable" data-field="Permanent">Permanent</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="col-labelable" data-field="MS/PhD">MS/PhD</label>
+
+
+            </div>
+          
+
+          </ul>
+        </li>
+
+
+
+
+
         <!--
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -131,17 +238,19 @@
           </ul>
         </li>
 
-        
+         -->
+         <!--
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            Summary Fields
+            <!--Summary Fields-- Positions
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
             <div id="summary-fields"></div>
           </ul>
         </li>
-         -->
+      -->
+       
 
         <!--
         <li class="dropdown pull-right">
@@ -155,7 +264,8 @@
            <li><a id="miami-invoice-detail" href="#">Miami Invoice Detail</a></li>
           </ul>
         </li>
-        -->
+      -->
+        
       </ul>
     </div>
     <hr/>
@@ -179,57 +289,39 @@ This page was quickly hacked up using the wonderful <a href="https://github.com/
 
 <script>
 
-function ageBucket(row, field){
-  var age = Math.abs(((new Date().getTime()) - row[field.dataSource])/1000/60/60/24);
-  switch (true){
-    case (age < 31):
-      return '000 - 030'
-    case (age < 61):
-      return '031 - 060'
-    case (age < 91):
-      return '061 - 090'
-    case (age < 121):
-      return '091 - 120'
-    default:
-      return '121+'
-  }
-};
 
 // Define the structure of fields, if this is not defined then all fields will be assumed
 // to be strings.  Name must match csv header row (which must exist) in order to parse correctly.
 var fields = [
     // filterable fields
-    {name: 'last_name',         type: 'string', filterable: true, filterType: 'regexp'},
-    {name: 'first_name',        type: 'string', filterable: true},
-    {name: 'state',             type: 'string', filterable: true},
-    {name: 'employer',          type: 'string', filterable: true},
-    {name: 'city',              type: 'string', filterable: true},
-    {name: 'invoice_date',      type: 'date',   filterable: true},
-    /*
-    {name: 'company',         type: 'string', filterable: true, filterType: 'regexp'},
-    {name: 'table',        type: 'string', filterable: true},
-    {name: 'room',             type: 'string', filterable: true},
-    {name: 'seeking',          type: 'string', filterable: true},
-    {name: 'level',              type: 'string', filterable: true},
-    */
+    {name: 'Company',     type: 'string', filterable: false, bAutoWidth: false }, 
+    //, filterType: 'regexp'},
+    {name: 'Room  (Floor)', type: 'string', filterable: true},
+    {name: 'Table #',       type: 'string', filterable: true},
+
+    {name: 'Applied Math',  type: 'string', filterable: true},
+    {name: 'BME',           type: 'string', filterable: true},
+    {name: 'Chem',          type: 'string', filterable: true},
+    {name: 'Civil',         type: 'string', filterable: true},
+    {name: 'Comp. Eng',     type: 'string', filterable: true},
+    {name: 'Comp. Sci',     type: 'string', filterable: true},
+    {name: 'EE',            type: 'string', filterable: true},
+    {name: 'Environ. Eng.', type: 'string', filterable: true},
+    {name: 'IE',            type: 'string', filterable: true},
+    {name: 'MaDE',          type: 'string', filterable: true},
+    {name: 'Mat. Sci',      type: 'string', filterable: true},
+    {name: 'Mech. Eng',     type: 'string', filterable: true},
+    {name: 'Non - Eng',     type: 'string', filterable: true},
+
+    {name: 'MS/PhD',        type: 'string', filterable: true},
+    
+    {name: 'Intern',        type: 'string', filterable: true},
+    {name: 'Co-op',         type: 'string', filterable: true},
+    {name: 'Permanent',     type: 'string', filterable: true},
+    
     
 
-    // psuedo fields
-    /*{name: 'invoice_mm', type: 'string', filterable: true, pseudo: true,
-      pseudoFunction: function(row){
-          var date = new Date(row.invoice_date);
-          return pivot.utils().padLeft((date.getMonth() + 1),2,'0')}
-    },
-    {name: 'invoice_yyyy_mm', type: 'string', filterable: true, pseudo: true,
-      pseudoFunction: function(row){
-        var date = new Date(row.invoice_date);
-        return date.getFullYear() + '_' + pivot.utils().padLeft((date.getMonth() + 1),2,'0')}
-    },
-    {name: 'invoice_yyyy', type: 'string', filterable: true, pseudo: true, columnLabelable: true,
-      pseudoFunction: function(row){ return new Date(row.invoice_date).getFullYear() }},
-    {name: 'age_bucket', type: 'string', filterable: true, columnLabelable: true, pseudo: true, dataSource: 'last_payment_date', pseudoFunction: ageBucket},
-    */
-
+    /*
     // summary fields
     {name: 'billed_amount',     type: 'float',  rowLabelable: false, summarizable: 'sum', displayFunction: function(value){ return accounting.formatMoney(value)}},
     {name: 'payment_amount',    type: 'float',  rowLabelable: false, summarizable: 'sum', displayFunction: function(value){ return accounting.formatMoney(value)}},
@@ -237,18 +329,19 @@ var fields = [
       pseudoFunction: function(row){ return row.billed_amount - row.payment_amount },
       summarizable: 'sum', displayFunction: function(value){ return accounting.formatMoney(value)}},
     {name: 'last_payment_date',  type: 'date',  filterable: true}
+    */
 ]
 
   function setupPivot(input){
     input.callbacks = {afterUpdateResults: function(){
       $('#results > table').dataTable({
         "sDom": "<'row'<'span6'l><'span6'f>>t<'row'<'span6'i><'span6'p>>",
-        "iDisplayLength": 50,
-        "aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]],
+        "iDisplayLength": -1,
+        "aLengthMenu": [[-1, 15, 25, 50], ["All", 15, 25, 50]],
         "sPaginationType": "bootstrap",
-        "oLanguage": {
-          "sLengthMenu": "_MENU_ records per page"
-        }
+        //"oLanguage": {
+        //  "sLengthMenu": "_MENU_ records per page"
+       // }
       });
     }};
     $('#pivot-demo').pivot_display('setup', input);
@@ -256,64 +349,39 @@ var fields = [
 
   $(document).ready(function() {
 
-    setupPivot({url:'./lib/csv/demo.csv', fields: fields, filters: {employer: 'Acme Corp'}, rowLabels:["city"], summaries:["billed_amount", "payment_amount"]})
+    setupPivot({url:'./lib/csv/company-grid-and-locations.csv', fields: fields,
+      rowLabels:[
+          "Company",
+          "Room  (Floor)", 
+          "Applied Math","BME","Chem","Civil","Comp. Eng","Comp. Sci","EE",
+          "Environ. Eng.","IE","MaDE","Mat. Sci","Mech. Eng","Non - Eng",
+          "MS/PhD","Permanent","Co-op","Intern",
+          ]
+        }
+        )
+    //, filters: {company: 'Dropbox'},  summaries:["Permanent", "Co-op", "Intern"]})
 
     // prevent dropdown from closing after selection
     $('.stop-propagation').click(function(event){
       event.stopPropagation();
     });
 
-    /*
-    // **Sexy** In your console type pivot.config() to view your current internal structure (the full initialize object).  Pass it to setup and you have a canned report.
-    $('#ar-aged-balance').click(function(event){
-      $('#pivot-demo').pivot_display('reprocess_display', {rowLabels:["employer"], columnLabels:["age_bucket"], summaries:["balance"]})
-    });
 
-    $('#acme-detail-report').click(function(event){
-      $('#pivot-demo').pivot_display('reprocess_display', {filters:{"employer":"Acme Corp"},rowLabels:["city","last_name","first_name","state","invoice_date"]})
-    });
 
-    $('#miami-invoice-detail').click(function(event){
-      $('#pivot-demo').pivot_display('reprocess_display', {"filters":{"city":"Miami"},"rowLabels":["last_name","first_name","employer","invoice_date"],"summaries":["payment_amount"]})
-    });*/
+
   });
 
+
+function fnShowHide( iCol )
+{
+    /* Get the DataTables object again - this is not a recreation, just a get of the object */
+    var oTable = $('#results > table').dataTable();
+     
+    var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+    oTable.fnSetColumnVis( iCol, bVis ? false : true );
+}
+
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!--
