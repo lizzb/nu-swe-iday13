@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<!-- saved from url=(0057)http://datatables.net/examples/data_sources/js_array.html -->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+	<link rel="shortcut icon" type="image/ico" href="http://www.sprymedia.co.uk/media/images/favicon.ico">
+	
+	<title>NU SWE Industry Day 2013 Pocket Guide</title>
+
+	<style type="text/css" title="currentStyle">
+		@import "http://datatables.net/release-datatables/media/css/demo_page.css";
+		@import "http://datatables.net/release-datatables/media/css/demo_table.css";
+	</style>
+
+	<script src="http://datatables.net/release-datatables/media/js/jquery.js"></script>
+
+	<script src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
+<!--
+	<link rel="stylesheet" href="./style/bootstrap.min.css" type="text/css">
+
+	<link rel="stylesheet" href="./style/subnav.css" type="text/css">
+    
+	<link rel="stylesheet" href="./style/pivot.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script src="./js/jquery.dataTables.min.js"></script>
+  <script src="./js/subnav.js"></script>
+	<script src="./js/dataTables.bootstrap.js"></script> 
+
+-->
+<script charset="utf-8">
+
+/* Data set - can contain whatever information you want */
+var aDataSet = [
+				
+  ["3M Company","Wildcat Room  (1)",79,"","","x","","x","","x","","x","x","x","x","","","x","","x"  ],
+  ["AT&T","Wildcat Room  (1)",74,"","","","","x","x","x","","","","","x","x","","x","","x"  ],
+  ["Accenture","Northwestern  (2)",69,"","x","x","x","x","x","x","x","x","x","x","x","x","","x","","x"  ],
+  ["Adage Technologies","Louis  (2)",45,"","","","","x","x","","","","","","","x","x","x","x","x"  ],
+  ["Alcatel-Lucent","Louis  (2)",9,"","","","","x","x","x","","","","","","","x","x","x","x"  ],
+  ["Allstate Insurance","Lake  (2)",60,"","","","","x","x","","","","","","","x","","x","","x"  ],
+  ["Altec Inc.","Louis  (2)",43,"","","","","","x","x","","x","x","x","x","x","","x","x","x"  ],
+  ["American Medical Association","Louis  (2)",48,"","","","","x","x","","","","","","","","","","","x"  ],
+  ["AvantCredit","Louis  (2)",52,"","","","","x","x","","","","","","","x","","x","",""  ],
+  ["Baxter Healthcare Corporation","Big 10  (1)",80,"","x","x","","","","","","x","","x","x","","","x","x","x"  ],
+  ["Bemis Company","Louis  (2)",4,"","x","x","","","","x","","","","x","x","","","x","x",""  ],
+  ["Boeing Company","Louis  (2)",7,"","","x","x","x","x","x","","x","x","x","x","x","","x","","x"  ],
+  ["CME Group","Louis  (2)",12,"","","","","x","x","","","","","","","","","x","",""  ],
+  ["Cars.com","Louis  (2)",2,"","","","","x","x","","","","","","","","","","","x"  ],
+  ["Chopper Trading","Louis  (2)",21,"x","","","","x","x","x","","","","","","","x","x","",""  ],
+  ["Chrysler Group LLC","Louis  (2)",44,"","","x","","","x","x","","","","x","x","","","","","x"  ],
+  ["Citadel LLC","Louis  (2)",22,"x","","","","x","x","x","","","","","","","x","x","","x"  ],
+  ["Clarity Solution Group","Louis  (2)",23,"x","","","","x","x","x","","x","","","x","x","","x","",""  ],
+  ["ComEd","Louis  (2)",20,"","","","","","","x","","","","","x","x","","","","x"  ],
+  ["Continental Corporation","Louis  (2)",39,"","","","","x","x","x","","","","","x","","","x","","x"  ],
+  ["DENSO International America","Louis  (2)",46,"","","","","x","","x","","","","","x","x","x","x","x","x"  ],
+  ["DMC Inc","Lake  (2)",54,"","","","","x","x","x","","","","","x","","","x","",""  ],
+  ["Deloitte Consulting","Lake  (2)",61,"x","x","","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Discover Financial Services","Wildcat Room  (1)",78,"","","","","","","","","x","x","","","","","x","",""  ],
+  ["Dropbox","Lake  (2)",58,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["ENVIRON International Corp","Louis  (2)",47,"","","x","x","","","","x","","","","","","","x","","x"  ],
+  ["Epic","Louis  (2)",5,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Etherios, a division of Digi International","Louis  (2)",31,"","","","","x","x","x","","","","","","","","x","","x"  ],
+  ["Exxon Mobil","Wildcat Room  (1)",76,"","","x","x","","","x","","","","x","x","x","x","x","x","x"  ],
+  ["FTI Consulting","Louis  (2)",3,"","","","","","","","","","","","","","","x","","x"  ],
+  ["Facebook","Wildcat Room  (1)",77,"","","","","","x","","","","","","","","","x","","x"  ],
+  ["FactSet Research Systems","Louis  (2)",42,"","","","","x","x","","","","","","","x","","x","","x"  ],
+  ["Fenwal Inc, a Fresenius-Kabi Company ","Louis  (2)",1,"","x","","","x","x","","","","","","x","","","x","x","x"  ],
+  ["Ford Motor Company","Northwestern  (2)",71,"","","","","x","x","x","","","x","","x","","x","x","","x"  ],
+  ["GAF","Big 10  (1)",83,"","","x","","","","x","","","","x","x","","","","x",""  ],
+  ["GTL/Illinois River Energy","Louis  (2)",14,"","","x","","","","","","","","","","","","","x","x"  ],
+  ["General Dynamics Electric Boat","Louis  (2)",25,"","","","x","x","x","x","","","","","x","","x","x","",""  ],
+  ["General Electric (GE)","Lake  (2)",63,"x","x","x","x","x","x","x","x","x","x","x","x","x","x","x","x","x"  ],
+  ["Goodyear Tire & Rubber Company","Wildcat Room  (1)",73,"","","x","","","","x","","","","x","x","","","x","x","x"  ],
+  ["HERE, a Nokia Business","Louis  (2)",30,"","","","","x","x","","","","","","","","x","x","","x"  ],
+  ["Hanley, Flight & Zimmerman LLC","Louis  (2)",51,"","","","","x","","x","","","","","x","x","","x","",""  ],
+  ["Hospira","Northwestern  (2)",66,"","x","x","","x","x","x","","x","x","","x","","","","x",""  ],
+  ["IMC Financial Markets","Louis  (2)",10,"x","","","","x","x","x","","","","","","","","x","","x"  ],
+  ["ITW","Louis  (2)",16,"","","","","x","x","x","","","x","","x","x","","x","","x"  ],
+  ["Illinois Dept. of Transportation","Louis  (2)",37,"","","","x","","","","","","","","","","","x","",""  ],
+  ["Institute for Defense Analysis","Louis  (2)",41,"x","","x","","x","x","x","x","","","x","x","x","","x","","x"  ],
+  ["Kiewit","Louis  (2)",8,"","","","x","","","","","","","","","","x","x","x","x"  ],
+  ["Lend Lease","Louis  (2)",32,"","","","x","","","","","","","","","","","x","","x"  ],
+  ["MathWorks","Louis  (2)",6,"","","","","x","x","x","","","","","x","","x","x","x","x"  ],
+  ["McDonnell Boehnen Hulbert & Berghoff LLP","Louis  (2)",28,"","","","","x","x","x","","","","","x","","x","x","",""  ],
+  ["Metro North Railroad","Louis  (2)",27,"","","","x","x","","x","x","","","","x","","","x","",""  ],
+  ["Metropolitan Water Reclamation District of Greater Chicago","Louis  (2)",11,"","","x","x","","","x","","","","","x","","","x","",""  ],
+  ["Microsoft","Big 10  (1)",84,"","","","","x","x","x","","","","","","","x","x","x","x"  ],
+  ["Mozilla","Northwestern  (2)",64,"","","","","","x","","","","","","","","","","","x"  ],
+  ["Nielsen","Lake  (2)",57,"x","",""," ","x","x"," x"," ","x","x"," ","x","x","x","x","","x"  ],
+  ["Northrop Grumman","Big 10  (1)",82,"","","","","x","x","","","","","","","","x","x","","x"  ],
+  ["Northwestern Mutual","Louis  (2)",36,"","","","","x","x","","","","","","","x","","","","x"  ],
+  ["Oracle America, Inc.","Lake  (2)",62,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Outerwall/Redbox","Louis  (2)",19,"","","","","x","x","","","","","","","","","x","",""  ],
+  ["P&G","Big 10  (1)",81,"","x","x","","","","","","","x","x","","x","x","x","x","x"  ],
+  ["PEC North America","Northwestern  (2)",67,"","","","","","","x","","","x","","x","","","x","",""  ],
+  ["Pariveda Solutions","Louis  (2)",38,"x","","","","x","x","","","","","","","","","x","",""  ],
+  ["PepsiCo","Lake  (2)",55,"x","","","","x","x","","","x","","","","","","","",""  ],
+  ["Pratt & Whitney","Louis  (2)",13,"","","","","","","","","","x","x","x","","","x","",""  ],
+  ["PwC (PricewaterhouseCoopers)","Louis  (2)",15,"x","x","","","x","x","x","","x","x","","x","x","x","x","","x"  ],
+  ["Readyforce","Northwestern  (2)",68,"x","","","x","x","x","x","","x","","","x","","","x","","x"  ],
+  ["S&C Electric","Wildcat Room  (1)",75,"","","","","","","","","","","","","","","","",""  ],
+  ["SBB Research Group","Louis  (2)",18,"","","","","x","x","","","","","","","","x","x","x","x"  ],
+  ["SapientNitro","Louis  (2)",50,"","","","","x","x","","","x","","","","x","","x","",""  ],
+  ["Schneider Electric","Louis  (2)",33,"","","","","x","x","x","","x","x","","x","x","","x","x","x"  ],
+  ["Shmoop University, Inc.","Northwestern  (2)",70,"","","","","x","x","","","","","","","","x","x","x","x"  ],
+  ["SpaceX","Louis  (2)",53,"","","","","x","x","x","","x","x","x","x","x","","x","x","x"  ],
+  ["Tata Consultancy Services","Northwestern  (2)",65,"x","","","","x","x","x","","","","","","","","x","",""  ],
+  ["Think Big Analytics","Louis  (2)",29,"","","","","","x","","","","","","","","","x","","x"  ],
+  ["Thoughtworks","Lake  (2)",59,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Trading Technologies","Louis  (2)",17,"","","","","","x","","","","","","","","","x","x","x"  ],
+  ["United Airlines","Wildcat Room  (1)",72,"","","","","","x","","","x","","","","x","","x","","x"  ],
+  ["United Conveyor Corporation","Louis  (2)",35,"","","x","","","","x","","","","","x","","","x","",""  ],
+  ["WMS","Lake  (2)",56,"x","","","","x","x","x","","","x","","x","","x","x","x","x"  ],
+  ["Wm Wrigley Jr Company","Louis  (2)",49,"","","","","","","","","","","","x","","","","x",""  ],
+  ["Wolverine Trading , LLC","Louis  (2)",26,"","","","","x","x","","","","","","","x","","x","","x"  ],
+  ["Yahoo!","Louis  (2)",24,"","","","","x","x","","","","","","","","x","x","","x"  ],
+  ["ZS Associates","Louis  (2)",40,"x","x","x","x","x","x","x","x","x","x","x","x","","x","x","","x"  ],
+  ["Zebra Technologies Corporation","Louis  (2)",34,"","","x","","x","x","x","","","","","x","x","","x","x","x"  ]
+];
+			
+$(document).ready(function() {
+
+	$('#dynamic').html( '<div id="example_wrapper" class="dataTables_wrapper" role="grid"><table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table></div>' );
+
+	$('#example').dataTable( {
+		"aaData": aDataSet,
+		"aaSorting": [[1, 'asc']],
+		"aoColumns": [
+			{ "sTitle": "Company", "sWidth": "200px", "bAutoWidth": false },
+			{ "sTitle": "Room  (Floor)", "sWidth": "100px", "bAutoWidth": false },
+			{ "sTitle": "Table #", "bVisible": false },
+			{ "sTitle": "Applied Math", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+			{ "sTitle": "BME", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+			{ "sTitle": "Chem", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+			{ "sTitle": "Civil", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+			{ "sTitle": "Comp. Eng", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+			{ "sTitle": "Comp. Sci", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+			{ "sTitle": "EE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+			{ "sTitle": "Environ. Eng.", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+			{ "sTitle": "IE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+			{ "sTitle": "MaDE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+			{ "sTitle": "Mat. Sci", "sClass": "center", "bAutoWidth": false  },
+			{ "sTitle": "Mech. Eng", "sClass": "center", "bAutoWidth": false  },
+			{ "sTitle": "Non-Eng", "sClass": "center", "bAutoWidth": false  },
+			{ "sTitle": "MS/PhD", "sClass": "center", "sWidth": "35px", "bAutoWidth": false },
+			{ "sTitle": "Permanent", "sClass": "center", "sWidth": "50px", "bAutoWidth": false },
+			{ "sTitle": "Co-op", "sClass": "center", "sWidth": "35px", "bAutoWidth": false },
+			{ "sTitle": "Intern", "sClass": "center", "sWidth": "35px", "bAutoWidth": false },
+/*
+			{ "sTitle": "Version", "sClass": "center" },
+			{
+				"sTitle": "Grade",
+				"sClass": "center",
+				"fnRender": function(obj) {
+					var sReturn = obj.aData[ obj.iDataColumn ];
+					if ( sReturn == "A" ) {
+						sReturn = "<b>A</b>";
+					}
+					return sReturn;
+				}
+			}*/
+		],
+
+		"aoColumnDefs": [ 
+        {"sWidth": "200px", "aTargets": [1] },
+        {"sWidth": "100px", "aTargets": [1] } ],
+		"iDisplayLength": -1,
+        "aLengthMenu": [[-1, 15, 25, 50], ["All", 15, 25, 50]],
+        //"sPaginationType": "bootstrap",
+	} );	
+} );
+
+//function toggleMajorVisibility
+function fnShowHide( iCol )
+{
+    /* Get the DataTables object again - this is not a recreation, just a get of the object */
+    var oTable = $('#example').dataTable();
+     
+    var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+    oTable.fnSetColumnVis( iCol, bVis ? false : true );
+}
+		</script>
+	
+	<style type="text/css"></style>
+
+</head>
+
+
+	<body id="dt_example" style="">
+		<div id="container">
+
+			<div class="full_width big">
+				<i>DataTables</i> dynamic creation example
+			</div>
+
+			<p>
+				 Alternatively, you can download:
+        <li>
+          <a href="http://swe.mccormick.northwestern.edu/Iday%20Companies%20Grid-9.xls" target="_blank">Company Grid (.xls)</a>: a list of companies attending SWE Industry Day and the type of engineers they are looking to hire.
+          </li>
+        <li><a href="http://swe.mccormick.northwestern.edu/Company%20locations.xlsx" target="_blank"> Company [table] Locations </a>: locations of each company's table at Industry Day (.xlsx) </li>
+
+    <br/><br/>
+    The below information just summarizes these 2 files and provides it in a way that is easier to view on your mobile phone, as well as filter for your specific interests.
+
+
+
+
+
+
+<div class="subnav">
+      <ul class="nav nav-pills">
+
+        <!--
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Filter Fields
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+            <div id="filter-list"><select id="select-constructor"><option></option><option>Room  (Floor)</option><option>Table #</option><option>Applied Math</option><option>BME</option><option>Chem</option><option>Civil</option><option>Comp. Eng</option><option>Comp. Sci</option><option>EE</option><option>Environ. Eng.</option><option>IE</option><option>MaDE</option><option>Mat. Sci</option><option>Mech. Eng</option><option>Non - Eng</option><option>MS/PhD</option><option>Intern</option><option>Co-op</option><option>Permanent</option></select></div>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <!--Row Label Fields  (majors?) --
+            Majors
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;"
+
+-->
+<br>
+    <label><input type="checkbox" id="AM" class="major" onclick="fnShowHide(3);" checked>Applied Math</label>
+    <br>
+    
+    <label><input type="checkbox" id="BME" class="major" onclick="fnShowHide(4);" checked>BME</label>
+    <br>
+    
+    <label><input type="checkbox" id="Chem" class="major" onclick="fnShowHide(5);" checked>Chem</label>
+    <br>
+    
+    <label><input type="checkbox" id="Civil" class="major" onclick="fnShowHide(6);" checked>Civil</label>
+    <br>
+    
+    <label><input type="checkbox" id="CE" class="major" onclick="fnShowHide(7);" checked>Comp. Eng.</label>
+    <br>
+    
+    <label><input type="checkbox" id="CS" class="major" onclick="fnShowHide(8);" checked>Comp. Sci.</label>
+    <br>
+
+    <label><input type="checkbox" id="EE" class="major" onclick="fnShowHide(9);" checked>EE</label>
+    <br>
+
+    <label><input type="checkbox" id="EnvE" class="major" onclick="fnShowHide(10);" checked>Environ. Eng.</label>
+    <br>
+
+    <label><input type="checkbox" id="IE" class="major" onclick="fnShowHide(11);" checked>IE</label>
+    <br>
+
+    <label><input type="checkbox" id="MaDE" class="major" onclick="fnShowHide(12);" checked>MaDE</label>
+    <br>
+
+    <label><input type="checkbox" id="MAT" class="major" onclick="fnShowHide(13);" checked>Mat. Sci</label>
+    <br>
+
+    <label><input type="checkbox" id="Mech" class="major" onclick="fnShowHide(14);" checked>Mech. Eng.</label>
+    <br>
+
+    <label><input type="checkbox" id="Non" class="major" onclick="fnShowHide(15);" checked>Non-Eng.</label>
+    <br>
+
+    <!--
+            <div id="row-label-fields">
+              <label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Company"> Company</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Room  (Floor)"> Room  (Floor)</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Applied Math"> Applied Math</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="BME"> BME</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Chem"> Chem</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Civil"> Civil</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Comp. Eng"> Comp. Eng</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Comp. Sci"> Comp. Sci</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="EE"> EE</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Environ. Eng."> Environ. Eng.</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="IE"> IE</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="MaDE"> MaDE</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Mat. Sci"> Mat. Sci</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Mech. Eng"> Mech. Eng</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Non - Eng"> Non - Eng</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="MS/PhD"> MS/PhD</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Permanent"> Permanent</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Co-op"> Co-op</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Intern"> Intern</label><label class="checkbox"><input type="checkbox" class="row-labelable" data-field="Table #"> Table #</label>
+            </div>
+          
+
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <!--Row Label Fields  (majors?) --
+            Positions
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+            <div id="row-label-fields">
+
+
+
+
+
+            </div>
+          
+
+          </ul>
+        </li>
+
+          <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Intern">Intern</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Co-op">Co-op</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="Permanent">Permanent</label>
+
+        <label class="checkbox">
+            <input type="checkbox" class="row-labelable" data-field="MS/PhD">MS/PhD</label>
+
+      </ul>
+
+
+
+    </div>
+-->
+
+    
+
+
+
+</p>
+			<!--
+			<h1>Preamble</h1>
+			<p>At times you will wish to be able to create a table from dynamic information passed directly to <i>DataTables</i>, rather than having it read from the document. This is achieved using the "aaData" array in the initialisation object. A table node must first be created before the initialiser is called (as shown in the code below). This is also useful for optimisation - if you are able to format the data as required, this method can save a lot of DOM parsing to create a table.</p>
+			
+			<h1>Live example</h1>
+		-->
+			
+<div id="dynamic">
+    <div id="example_wrapper" class="dataTables_wrapper" role="grid">
+
+        
+
+
+    </div>
+</div>
+
+			<div class="spacer"></div>
+			<br><br>
+			
+			
+			<div id="footer" style="text-align:center;">
+				<span style="font-size:10px;">DataTables © Allan Jardine 2008-2010</span>
+			</div>
+		</div>
+	
+</body></html>
