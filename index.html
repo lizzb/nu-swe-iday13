@@ -81,7 +81,7 @@
           <a href="http://swe.mccormick.northwestern.edu/Iday%20Companies%20Grid-9.xls" target="_blank">Company Grid (.xls)</a>: a list of companies attending SWE Industry Day and the type of engineers they are looking to hire.
           </li>
         <li><a href="http://swe.mccormick.northwestern.edu/Company%20locations.xlsx" target="_blank"> Company [table] Locations </a>: locations of each company's table at Industry Day (.xlsx) </li>
-        
+
     <br/><br/>
       <b>To begin:</b>
 
@@ -197,20 +197,28 @@ function ageBucket(row, field){
 // to be strings.  Name must match csv header row (which must exist) in order to parse correctly.
 var fields = [
     // filterable fields
+    {name: 'last_name',         type: 'string', filterable: true, filterType: 'regexp'},
+    {name: 'first_name',        type: 'string', filterable: true},
+    {name: 'state',             type: 'string', filterable: true},
+    {name: 'employer',          type: 'string', filterable: true},
+    {name: 'city',              type: 'string', filterable: true},
+    {name: 'invoice_date',      type: 'date',   filterable: true},
+    /*
     {name: 'company',         type: 'string', filterable: true, filterType: 'regexp'},
     {name: 'table',        type: 'string', filterable: true},
     {name: 'room',             type: 'string', filterable: true},
     {name: 'seeking',          type: 'string', filterable: true},
     {name: 'level',              type: 'string', filterable: true},
-    {name: 'invoice_date',      type: 'date',   filterable: true},
+    */
+    
 
     // psuedo fields
-    {name: 'invoice_mm', type: 'string', filterable: true, pseudo: true,
+    /*{name: 'invoice_mm', type: 'string', filterable: true, pseudo: true,
       pseudoFunction: function(row){
           var date = new Date(row.invoice_date);
           return pivot.utils().padLeft((date.getMonth() + 1),2,'0')}
     },
-    /*{name: 'invoice_yyyy_mm', type: 'string', filterable: true, pseudo: true,
+    {name: 'invoice_yyyy_mm', type: 'string', filterable: true, pseudo: true,
       pseudoFunction: function(row){
         var date = new Date(row.invoice_date);
         return date.getFullYear() + '_' + pivot.utils().padLeft((date.getMonth() + 1),2,'0')}
