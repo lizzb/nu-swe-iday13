@@ -1,78 +1,210 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Nu-swe-iday13 by lizzb</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>Pivot.js</title>
+  <!-- Twitter Bootstrap -->
+  <link rel="stylesheet" href="./lib/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="./lib/css/subnav.css" type="text/css" />
+  <link rel="stylesheet" href="./lib/css/pivot.css" type="text/css" />
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/lizzb/nu-swe-iday13">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/lizzb/nu-swe-iday13/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/lizzb/nu-swe-iday13/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./lib/javascripts/subnav.js"></script>
+  <script type="text/javascript" src="./lib/javascripts/accounting.min.js"></script>
+  <script type="text/javascript" src="./lib/javascripts/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="./lib/javascripts/dataTables.bootstrap.js"></script>
 
-    <div class="wrapper">
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      <section>
-        <div id="title">
-          <h1>Nu-swe-iday13</h1>
-          <p>Testing out if I can get tables to display in a mobile friendly format for the SWE career fair</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/lizzb">lizzb</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+    ga('create', 'UA-42535149-1', 'rjackson.github.io');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- jquery_pivot must be loaded after pivot.js and jQuery -->
+  <script type="text/javascript" src="./pivot.js"></script>
+  <script type="text/javascript" src="./jquery_pivot.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li class="active">
+              <a class="brand" href="https://github.com/rjackson/pivot.js">Pivot.js</a>
+            </li>
+            <li><a href="https://github.com/rjackson/pivot.js">Fork On Github</a></li>
+            <li><a href="./spec/runner.html">Run Spec</a></li>
+            <li><a href="./docs/index.html#!/api/Pivot">Docs</a></li>
+          </ul>
         </div>
-
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
-</html>
+  <div class="container">
+    <h1>Pivot.js</h1>
+    <p>Pivot.js is a simple way to summarize large data sets on the fly. On this page we are using the pivot jQuery plugin which offers a nice entry point to Pivot.js.
+    <br/><br/>
+    The data for the chart below is based on a CSV file of about 5000 rows.  It is generated by a <a href="https://github.com/rjackson/pivot.js/blob/master/demo_csv_builder.rb">script</a> included in the repository.  It is designed to have many fields that have at least some significant relationships between one another.  This only just scratches the surface of what Pivot.js can do.  Check out the <a href="https://github.com/rjackson/pivot.js/blob/master/README.md">README</a> for more information.  Also feel free to run the spec (found in the link up top), and if you spot any problems let us know so we can fix them.
+    <br/><br/>
+      <b>To begin:</b>
+      <ul>
+        <li>Select the fields you would like to display from the Label Fields/Summary Fields drop down.</li>
+        <li>Then filter your data by selecting from the filters drop down.</li>
+        <li>Ta-da, you have yourself a custom report!</li>
+      </ul>
+    </p>
+    <div class="subnav">
+      <ul class="nav nav-pills">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Filter Fields
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+            <div id="filter-list"></div>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Row Label Fields
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+            <div id="row-label-fields"></div>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Column Label Fields
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+            <div id="column-label-fields"></div>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Summary Fields
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+            <div id="summary-fields"></div>
+          </ul>
+        </li>
+        <li class="dropdown pull-right">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Canned Reports
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+           <li><a id="ar-aged-balance" href="#">AR Aged Balance</a></li>
+           <li><a id="acme-detail-report" href="#">Acme Corp Detail</a></li>
+           <li><a id="miami-invoice-detail" href="#">Miami Invoice Detail</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <hr/>
+
+    <h1>Results</h1>
+    <span id="pivot-detail"></span>
+
+    <hr/>
+    <div id="results"></div>
+  </div>
+</body>
+
+<script type="text/javascript">
+
+function ageBucket(row, field){
+  var age = Math.abs(((new Date().getTime()) - row[field.dataSource])/1000/60/60/24);
+  switch (true){
+    case (age < 31):
+      return '000 - 030'
+    case (age < 61):
+      return '031 - 060'
+    case (age < 91):
+      return '061 - 090'
+    case (age < 121):
+      return '091 - 120'
+    default:
+      return '121+'
+  }
+};
+
+// Define the structure of fields, if this is not defined then all fields will be assumed
+// to be strings.  Name must match csv header row (which must exist) in order to parse correctly.
+var fields = [
+    // filterable fields
+    {name: 'last_name',         type: 'string', filterable: true, filterType: 'regexp'},
+    {name: 'first_name',        type: 'string', filterable: true},
+    {name: 'state',             type: 'string', filterable: true},
+    {name: 'employer',          type: 'string', filterable: true},
+    {name: 'city',              type: 'string', filterable: true},
+    {name: 'invoice_date',      type: 'date',   filterable: true},
+
+    // psuedo fields
+    {name: 'invoice_mm', type: 'string', filterable: true, pseudo: true,
+      pseudoFunction: function(row){
+          var date = new Date(row.invoice_date);
+          return pivot.utils().padLeft((date.getMonth() + 1),2,'0')}
+    },
+    {name: 'invoice_yyyy_mm', type: 'string', filterable: true, pseudo: true,
+      pseudoFunction: function(row){
+        var date = new Date(row.invoice_date);
+        return date.getFullYear() + '_' + pivot.utils().padLeft((date.getMonth() + 1),2,'0')}
+    },
+    {name: 'invoice_yyyy', type: 'string', filterable: true, pseudo: true, columnLabelable: true,
+      pseudoFunction: function(row){ return new Date(row.invoice_date).getFullYear() }},
+    {name: 'age_bucket', type: 'string', filterable: true, columnLabelable: true, pseudo: true, dataSource: 'last_payment_date', pseudoFunction: ageBucket},
+
+
+    // summary fields
+    {name: 'billed_amount',     type: 'float',  rowLabelable: false, summarizable: 'sum', displayFunction: function(value){ return accounting.formatMoney(value)}},
+    {name: 'payment_amount',    type: 'float',  rowLabelable: false, summarizable: 'sum', displayFunction: function(value){ return accounting.formatMoney(value)}},
+    {name: 'balance', type: 'float', rowLabelable: false, pseudo: true,
+      pseudoFunction: function(row){ return row.billed_amount - row.payment_amount },
+      summarizable: 'sum', displayFunction: function(value){ return accounting.formatMoney(value)}},
+    {name: 'last_payment_date',  type: 'date',  filterable: true}
+]
+
+  function setupPivot(input){
+    input.callbacks = {afterUpdateResults: function(){
+      $('#results > table').dataTable({
+        "sDom": "<'row'<'span6'l><'span6'f>>t<'row'<'span6'i><'span6'p>>",
+        "iDisplayLength": 50,
+        "aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]],
+        "sPaginationType": "bootstrap",
+        "oLanguage": {
+          "sLengthMenu": "_MENU_ records per page"
+        }
+      });
+    }};
+    $('#pivot-demo').pivot_display('setup', input);
+  };
+
+  $(document).ready(function() {
+
+    setupPivot({url:'./lib/csv/demo.csv', fields: fields, filters: {employer: 'Acme Corp'}, rowLabels:["city"], summaries:["billed_amount", "payment_amount"]})
+
+    // prevent dropdown from closing after selection
+    $('.stop-propagation').click(function(event){
+      event.stopPropagation();
+    });
+
+    // **Sexy** In your console type pivot.config() to view your current internal structure (the full initialize object).  Pass it to setup and you have a canned report.
+    $('#ar-aged-balance').click(function(event){
+      $('#pivot-demo').pivot_display('reprocess_display', {rowLabels:["employer"], columnLabels:["age_bucket"], summaries:["balance"]})
+    });
+
+    $('#acme-detail-report').click(function(event){
+      $('#pivot-demo').pivot_display('reprocess_display', {filters:{"employer":"Acme Corp"},rowLabels:["city","last_name","first_name","state","invoice_date"]})
+    });
+
+    $('#miami-invoice-detail').click(function(event){
+      $('#pivot-demo').pivot_display('reprocess_display', {"filters":{"city":"Miami"},"rowLabels":["last_name","first_name","employer","invoice_date"],"summaries":["payment_amount"]})
+    });
+  });
+</script>
